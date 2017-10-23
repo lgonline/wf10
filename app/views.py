@@ -1,0 +1,28 @@
+#!/usr/bin/env python
+# encoding: utf-8
+
+"""
+@author: liugang9
+@software: PyCharm
+@file: views.py
+@time: 2017/10/23 20:37
+"""
+
+from app import app
+from flask import render_template
+
+@app.route('/')
+@app.route('/index')
+def index():
+    user = {'nickname':'Peter'}
+    posts = [
+        {
+            'author':{'nickname':'John'},
+            'body':'Beautiful day in portland'
+        },
+        {
+            'author': {'nickname': 'Susan'},
+            'body': 'The Avengers movie was so cool!'
+        }
+    ]
+    return render_template('index.html',user=user,posts=posts)
